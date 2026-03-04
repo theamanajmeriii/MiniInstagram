@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<div class="navbar">
+  <div class="navbar__logo">MiniGram</div>
+  <div class="navbar__actions">
+    
+    <a href="/posts/new" class="nav-icon-btn" title="Create Post">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M12 4v16m8-8H4" />
+  </svg>
+</a>
+
+  </div>
+</div>
+
+<div class="layout">
+  <div class="feed">
+
+    <% posts.forEach(post => { %>
+
+      <div class="post">
+
+        <div class="post__header">
+          <a href="/posts/<%= post.id %>" class="post__user">
+            <div class="post__avatar-wrap">
+              <img src="<%= post.image %>" class="post__avatar" />
+            </div>
+            <div>
+              <div class="post__username">@<%= post.username %></div>
+              <div class="post__location">Mumbai, India</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="post__image-wrap">
+          <img src="<%= post.image %>" class="post__image" />
+        </div>
+
+        <div class="post__body">
+          <div class="post__likes">1,024 likes</div>
+
+          <div class="post__caption">
+            <strong>@<%= post.username %></strong>
+            <%= post.caption %>
+          </div>
+
+          <div class="post__time"><%= post.createdAt %></div>
+        </div>
+
+      </div>
+
+    <% }) %>
+
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

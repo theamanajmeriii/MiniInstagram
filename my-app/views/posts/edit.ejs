@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+<div class="layout">
+  <div class="feed">
+
+    <div class="post" style="padding: 20px;">
+
+      <h2 style="margin-bottom: 20px;">Edit Post</h2>
+
+      <form action="/posts/<%= post.id %>" method="POST" class="edit-form">
+
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" name="username" value="<%= post.username %>" required>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" name="image" value="<%= post.image %>" required>
+        </div>
+
+        <div class="form-group">
+          <label>Caption</label>
+          <textarea name="caption" required><%= post.caption %></textarea>
+        </div>
+
+        <button type="submit" class="button-link">Update Post</button>
+
+      </form>
+
+      <br>
+      <a href="/posts/<%= post.id %>" class="follow-btn">← Back</a>
+
+    </div>
+
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

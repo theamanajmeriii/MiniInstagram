@@ -1,0 +1,36 @@
+<a href="/posts/new">➕ Create New Post</a>
+<br><br>
+
+<%- include('../partials/header') %>
+
+<form method="GET" action="/posts" style="margin-bottom: 20px;">
+  <input 
+    type="text" 
+    name="search" 
+    placeholder="Search by username..." 
+    value="<%= search || '' %>"
+  >
+  <button type="submit">Search</button>
+</form>
+
+<h2>All Posts</h2>
+
+<% posts.forEach(post => { %>
+  <div style="margin-bottom: 2rem; border-bottom: 1px solid #ccc; padding-bottom: 1rem;">
+    
+    <h3>
+      <a href="/posts/<%= post.id %>">
+        @<%= post.username %>
+      </a>
+    </h3>
+
+    <img src="<%= post.image %>" width="400" />
+
+    <p><%= post.caption %></p>
+
+    <small><%= post.createdAt %></small>
+
+  </div>
+<% }) %>
+
+<%- include('../partials/footer') %>

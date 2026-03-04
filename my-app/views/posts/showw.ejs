@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<h2>@<%= post.username %></h2>
+
+<img src="<%= post.image %>" width="400" />
+
+<p><%= post.caption %></p>
+
+<small><%= post.createdAt %></small>
+
+<br><br>
+
+<a href="/posts/<%= post.id %>/edit">✏️ Edit Post</a>
+<br>
+<form action="/posts/<%= post.id %>/delete" method="POST" style="margin-top:10px;">
+  <button type="submit">🗑 Delete Post</button>
+</form>
+<br>
+<a href="/posts">⬅ Back to Posts</a>
+
+<%- include('../partials/footer') %>

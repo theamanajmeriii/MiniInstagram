@@ -1,0 +1,53 @@
+<%- include('../partials/header') %>
+
+<div class="layout">
+  <div class="feed">
+
+    <div class="post">
+
+      <div class="post__header">
+        <div class="post__user">
+          <div class="post__avatar-wrap">
+            <img src="<%= post.image %>" class="post__avatar" />
+          </div>
+          <div>
+            <div class="post__username">@<%= post.username %></div>
+            <div class="post__location">Mumbai, India</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="post__image-wrap">
+        <img src="<%= post.image %>" class="post__image" />
+      </div>
+
+      <div class="post__body">
+        <div class="post__likes">1,024 likes</div>
+
+        <div class="post__caption">
+          <strong>@<%= post.username %></strong>
+          <%= post.caption %>
+        </div>
+
+        <div class="post__time"><%= post.createdAt %></div>
+        
+
+        <br>
+
+        <a href="/posts/<%= post.id %>/edit" class="follow-btn">Edit</a>
+
+        <form action="/posts/<%= post.id %>/delete" method="POST" style="display:inline;">
+          <button class="follow-btn" style="color:red;">Delete</button>
+        </form>
+
+        <br><br>
+        <a href="/posts" class="follow-btn">Back</a>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
